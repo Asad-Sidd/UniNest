@@ -15,12 +15,7 @@ export default function SplashScreen() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Check for reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      setVisible(false);
-      return;
-    }
+    // Removed reduced motion check temporarily so you can force it to play
 
     // Start fade out at 3.2s
     const fadeTimer = setTimeout(() => setFadeOut(true), 3200);
