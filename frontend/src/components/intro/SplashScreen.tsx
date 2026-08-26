@@ -2,12 +2,20 @@
 
 import { useState, useEffect } from 'react';
 
-const paths = [
+const desktopPaths = [
   { d: "M 400 300 Q 320 200 150 120", cx: 150, cy: 120 },
   { d: "M 400 300 Q 520 180 650 100", cx: 650, cy: 100 },
   { d: "M 400 300 Q 300 400 120 480", cx: 120, cy: 480 },
   { d: "M 400 300 Q 550 380 680 450", cx: 680, cy: 450 },
   { d: "M 400 300 Q 560 250 720 300", cx: 720, cy: 300 },
+];
+
+const mobilePaths = [
+  { d: "M 400 300 Q 360 200 320 120", cx: 320, cy: 120 },
+  { d: "M 400 300 Q 460 180 480 100", cx: 480, cy: 100 },
+  { d: "M 400 300 Q 350 400 300 480", cx: 300, cy: 480 },
+  { d: "M 400 300 Q 450 380 480 450", cx: 480, cy: 450 },
+  { d: "M 400 300 Q 450 250 490 300", cx: 490, cy: 300 },
 ];
 
 export default function SplashScreen() {
@@ -30,28 +38,15 @@ export default function SplashScreen() {
 
   if (!visible) return null;
 
-  return (
-    <div 
-      className={`fixed inset-0 z-[9999] flex items-center justify-center transition-all duration-700 ease-in-out pointer-events-none ${fadeOut ? 'opacity-0 scale-[0.95]' : 'opacity-100 scale-100'}`}
-      style={{ backgroundColor: '#2d545e' }}
-    >
-      {/* CSS Animations moved to globals.css to prevent hydration mismatch */}
-
-      {/* Subtle radial glow */}
-      <div 
-        className="absolute inset-0 opacity-10"
-        style={{
-          background: 'radial-gradient(circle at center, #e1b382 0%, transparent 60%)'
-        }}
-      />
-
-      {/* SVG container */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-        
+  // Helper to render paths
+  const renderPaths = (paths: typeof desktopPaths, isMobile: boolean) => {
+    const prefix = isMobile ? 'mobile' : 'desktop';
+    return (
+      <g className={isMobile ? 'block md:hidden' : 'hidden md:block'}>
         {/* SVG Masks for drawing dashed lines */}
         <defs>
           {paths.map((p, i) => (
-            <mask id={`mask-line-${i}`} key={`mask-${i}`}>
+            <mask id={`mask-line-${prefix}-${i}`} key={`mask-${prefix}-${i}`}>
               <path 
                 d={p.d}
                 fill="none" 
@@ -71,27 +66,27 @@ export default function SplashScreen() {
         {/* Faint solid background line for depth */}
         <g stroke="#c89666" strokeWidth="2" strokeDasharray="8 6" fill="none" opacity="0.15">
           {paths.map((p, i) => (
-            <path key={`bg-path-${i}`} d={p.d} />
+            <path key={`bg-path-${prefix}-${i}`} d={p.d} />
           ))}
         </g>
         
         {/* Animated map route lines */}
         {paths.map((p, i) => (
           <path 
-            key={`fg-path-${i}`}
+            key={`fg-path-${prefix}-${i}`}
             d={p.d}
             fill="none" 
             stroke="#e1b382" 
             strokeWidth="2" 
             strokeDasharray="8 6"
-            mask={`url(#mask-line-${i})`}
+            mask={`url(#mask-line-${prefix}-${i})`}
           />
         ))}
 
         {/* Animated endpoint markers */}
         {paths.map((p, i) => (
           <circle 
-            key={`marker-${i}`}
+            key={`marker-${prefix}-${i}`}
             cx={p.cx} 
             cy={p.cy} 
             r="4" 
@@ -104,7 +99,29 @@ export default function SplashScreen() {
             }} 
           />
         ))}
+      </g>
+    );
+  };
 
+  return (
+    <div 
+      className={`fixed inset-0 z-[9999] flex items-center justify-center transition-all duration-700 ease-in-out pointer-events-none ${fadeOut ? 'opacity-0 scale-[0.95]' : 'opacity-100 scale-100'}`}
+      style={{ backgroundColor: '#2d545e' }}
+    >
+      {/* CSS Animations moved to globals.css to prevent hydration mismatch */}
+
+      {/* Subtle radial glow */}
+      <div 
+        className="absolute inset-0 opacity-10"
+        style={{
+          background: 'radial-gradient(circle at center, #e1b382 0%, transparent 60%)'
+        }}
+      />
+
+      {/* SVG container */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+        {renderPaths(desktopPaths, false)}
+        {renderPaths(mobilePaths, true)}
       </svg>
       
       {/* Center Text */}
