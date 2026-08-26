@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Asad-Sidd/UniNest/main/frontend/public/favicon.ico" alt="UniNest Logo" width="120" />
+  <img src="https://raw.githubusercontent.com/Asad-Sidd/UniNest/main/frontend/public/logo.png" alt="UniNest Logo" width="120" />
   <h1>UniNest 🏡</h1>
   <p><strong>Find Your Nest. The Ultimate Student Accommodation Platform.</strong></p>
   <p><i>Tailored specifically for students of Integral University, Lucknow.</i></p>
