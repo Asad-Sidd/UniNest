@@ -15,7 +15,7 @@
 
 ---
 
-## 🌟 Overview
+## <a id="overview"></a>🌟 Overview
 
 **UniNest** is a modern, AI-powered platform designed to help students easily find the perfect Paying Guest (PG) or Hostel accommodation near their campus. Say goodbye to endless scrolling—just tell our AI what you need, and it finds the perfect match.
 
@@ -23,7 +23,7 @@ With a beautiful, responsive UI and blazing-fast performance, UniNest brings pro
 
 ---
 
-## ✨ Features
+## <a id="features"></a>✨ Features
 
 - 🤖 **Natural Language AI Search:** Powered by Groq & Qwen, simply type *"Find me a PG near Kursi Road under ₹5000 with WiFi"* and let the AI do the heavy lifting.
 - 🗺️ **Interactive Maps Integration:** See exactly where your future nest is located with built-in Google Maps routing.
@@ -33,7 +33,7 @@ With a beautiful, responsive UI and blazing-fast performance, UniNest brings pro
 
 ---
 
-## 🛠️ Tech Stack
+## <a id="tech-stack"></a>🛠️ Tech Stack
 
 UniNest is built using a modern, scalable full-stack architecture:
 
@@ -51,7 +51,7 @@ UniNest is built using a modern, scalable full-stack architecture:
 
 ---
 
-## 🚀 Getting Started
+## <a id="getting-started"></a>🚀 Getting Started
 
 To get a local copy up and running, follow these simple steps.
 
@@ -106,11 +106,25 @@ To get a local copy up and running, follow these simple steps.
 
 ---
 
-## 🧠 How the AI Search Works
+## <a id="ai-search"></a>🧠 How the AI Search Works
 
 UniNest uses Groq's ultra-fast inference engine to parse natural language queries. 
 
 When you type a search query, the backend sends it to the LLM (Large Language Model) with a strict JSON schema prompt. The AI intelligently extracts your requirements (budget, location, amenities) and converts them into a complex MongoDB query. This allows for incredibly intuitive searches without the need for dozen of dropdown menus.
+
+---
+
+---
+
+## <a id="contributing"></a>🤝 Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
