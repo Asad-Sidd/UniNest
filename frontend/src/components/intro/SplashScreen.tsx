@@ -40,36 +40,7 @@ export default function SplashScreen() {
       className={`fixed inset-0 z-[9999] flex items-center justify-center transition-all duration-700 ease-in-out pointer-events-none ${fadeOut ? 'opacity-0 scale-[0.95]' : 'opacity-100 scale-100'}`}
       style={{ backgroundColor: '#2d545e' }}
     >
-      {/* CSS Animations */}
-      <style>{`
-        @keyframes textPop {
-          0% { opacity: 0; transform: scale(0.8); }
-          100% { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes drawLine {
-          to { stroke-dashoffset: 0; }
-        }
-
-        @keyframes markerPop {
-          0% { opacity: 0; transform: scale(0); }
-          100% { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes subtitleFade {
-          0%, 60% { opacity: 0; transform: translateY(10px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-textPop {
-          animation: textPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-
-        .animate-subtitleFade {
-          animation: subtitleFade 1.5s ease-out 1.5s forwards;
-          opacity: 0;
-        }
-      `}</style>
+      {/* CSS Animations moved to globals.css to prevent hydration mismatch */}
 
       {/* Subtle radial glow */}
       <div 
