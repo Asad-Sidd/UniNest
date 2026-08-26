@@ -26,7 +26,7 @@ Ensure the response is valid JSON.
 
   try {
     const response = await openai.chat.completions.create({
-      model: 'llama-3.3-70b-versatile', // using Groq's supported Llama 3.3 model
+      model: 'llama3-8b-8192', // using Groq's widely available Llama 3 model
       messages: [{ role: 'system', content: prompt }],
       response_format: { type: 'json_object' },
     });
