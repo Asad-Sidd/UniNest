@@ -109,7 +109,7 @@ export default function SplashScreen() {
       
       {/* Center Text */}
       <h1 className="relative z-10 font-cinzel text-5xl md:text-7xl font-bold drop-shadow-[0_0_15px_rgba(225,179,130,0.4)] animate-textPop" style={{ color: '#e1b382' }}>
-        UniNest
+        UNINEST
       </h1>
       
       {/* Subtitle */}
