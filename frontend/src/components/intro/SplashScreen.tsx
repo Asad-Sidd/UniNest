@@ -3,25 +3,21 @@
 import { useState, useEffect } from 'react';
 
 const desktopPaths = [
-  // 1: Top (Starts above N/I, curves left then right)
-  { d: "M 400 260 C 360 200, 460 140, 420 80", cx: 420, cy: 80 },
-  // 2: Right (Starts right of T, goes right/down then up/right)
-  { d: "M 480 280 C 580 320, 600 150, 720 180", cx: 720, cy: 180 },
-  // 3: Bottom Right (Starts below S/T, curves right then down/right)
-  { d: "M 460 330 C 550 360, 520 480, 650 520", cx: 650, cy: 520 },
-  // 4: Bottom Left (Starts below U/N, curves right then left/down)
-  { d: "M 340 330 C 430 380, 250 460, 220 520", cx: 220, cy: 520 },
-  // 5: Left (Starts left of U, curves left/down then up/left)
-  { d: "M 320 280 C 240 320, 200 150, 120 220", cx: 120, cy: 220 },
+  // Desktop Center: 400, 300 (viewBox 800x600)
+  { d: "M 400 260 C 350 150, 480 100, 420 40", cx: 420, cy: 40 }, // Top
+  { d: "M 480 280 C 600 320, 650 150, 760 180", cx: 760, cy: 180 }, // Right
+  { d: "M 460 330 C 580 360, 520 500, 680 550", cx: 680, cy: 550 }, // Bottom Right
+  { d: "M 340 330 C 220 380, 280 500, 120 550", cx: 120, cy: 550 }, // Bottom Left
+  { d: "M 320 280 C 200 320, 150 150, 40 220", cx: 40, cy: 220 }, // Left
 ];
 
 const mobilePaths = [
-  // Tighter horizontal bounds for mobile (X between 260 and 540)
-  { d: "M 400 260 C 370 200, 440 140, 420 80", cx: 420, cy: 80 }, // Top
-  { d: "M 450 270 C 500 300, 510 160, 530 180", cx: 530, cy: 180 }, // Right
-  { d: "M 440 330 C 500 360, 480 480, 520 520", cx: 520, cy: 520 }, // Bottom Right
-  { d: "M 360 330 C 420 380, 320 460, 300 520", cx: 300, cy: 520 }, // Bottom Left
-  { d: "M 350 280 C 290 320, 290 160, 270 220", cx: 270, cy: 220 }, // Left
+  // Mobile Center: 300, 400 (viewBox 600x800)
+  { d: "M 300 360 C 250 200, 380 150, 320 60", cx: 320, cy: 60 }, // Top
+  { d: "M 380 380 C 480 420, 520 250, 560 280", cx: 560, cy: 280 }, // Right
+  { d: "M 360 430 C 450 460, 420 650, 540 720", cx: 540, cy: 720 }, // Bottom Right
+  { d: "M 240 430 C 150 480, 180 650, 60 720", cx: 60, cy: 720 }, // Bottom Left
+  { d: "M 220 380 C 120 420, 80 250, 40 320", cx: 40, cy: 320 }, // Left
 ];
 
 export default function SplashScreen() {
@@ -124,9 +120,13 @@ export default function SplashScreen() {
         }}
       />
 
-      {/* SVG container */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+      {/* Desktop SVG container */}
+      <svg className="hidden md:block absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
         {renderPaths(desktopPaths, false)}
+      </svg>
+      
+      {/* Mobile SVG container */}
+      <svg className="block md:hidden absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid meet">
         {renderPaths(mobilePaths, true)}
       </svg>
       
