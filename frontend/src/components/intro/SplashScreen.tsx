@@ -3,19 +3,25 @@
 import { useState, useEffect } from 'react';
 
 const desktopPaths = [
-  { d: "M 400 300 Q 320 200 150 120", cx: 150, cy: 120 },
-  { d: "M 400 300 Q 520 180 650 100", cx: 650, cy: 100 },
-  { d: "M 400 300 Q 300 400 120 480", cx: 120, cy: 480 },
-  { d: "M 400 300 Q 550 380 680 450", cx: 680, cy: 450 },
-  { d: "M 400 300 Q 560 250 720 300", cx: 720, cy: 300 },
+  // 1: Top (Starts above N/I, curves left then right)
+  { d: "M 400 260 C 360 200, 460 140, 420 80", cx: 420, cy: 80 },
+  // 2: Right (Starts right of T, goes right/down then up/right)
+  { d: "M 480 280 C 580 320, 600 150, 720 180", cx: 720, cy: 180 },
+  // 3: Bottom Right (Starts below S/T, curves right then down/right)
+  { d: "M 460 330 C 550 360, 520 480, 650 520", cx: 650, cy: 520 },
+  // 4: Bottom Left (Starts below U/N, curves right then left/down)
+  { d: "M 340 330 C 430 380, 250 460, 220 520", cx: 220, cy: 520 },
+  // 5: Left (Starts left of U, curves left/down then up/left)
+  { d: "M 320 280 C 240 320, 200 150, 120 220", cx: 120, cy: 220 },
 ];
 
 const mobilePaths = [
-  { d: "M 400 300 Q 360 200 320 120", cx: 320, cy: 120 },
-  { d: "M 400 300 Q 460 180 480 100", cx: 480, cy: 100 },
-  { d: "M 400 300 Q 350 400 300 480", cx: 300, cy: 480 },
-  { d: "M 400 300 Q 450 380 480 450", cx: 480, cy: 450 },
-  { d: "M 400 300 Q 450 250 490 300", cx: 490, cy: 300 },
+  // Tighter horizontal bounds for mobile (X between 260 and 540)
+  { d: "M 400 260 C 370 200, 440 140, 420 80", cx: 420, cy: 80 }, // Top
+  { d: "M 450 270 C 500 300, 510 160, 530 180", cx: 530, cy: 180 }, // Right
+  { d: "M 440 330 C 500 360, 480 480, 520 520", cx: 520, cy: 520 }, // Bottom Right
+  { d: "M 360 330 C 420 380, 320 460, 300 520", cx: 300, cy: 520 }, // Bottom Left
+  { d: "M 350 280 C 290 320, 290 160, 270 220", cx: 270, cy: 220 }, // Left
 ];
 
 export default function SplashScreen() {
