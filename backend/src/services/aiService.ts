@@ -19,15 +19,16 @@ If the user is looking for accommodation (PG, Hostel, rooms), parse the request 
 - "filter": MongoDB-style query object based on the user's requirements. Available fields: "type" (PG or Hostel), "address.area" (Dasauli, Kursi Road, Other), "pricing.monthlyRent" (use $lte, $gte, etc.), "pricing.sharingOptions.type" (e.g., "1-sharing", "2-sharing"), "amenities" (WiFi, AC, Food, Laundry, PowerBackup, etc.).
 - "explanation": A friendly, human-readable summary of what you are searching for.
 
-User Query: "${query}"
-
 Ensure the response is valid JSON.
 `;
 
   try {
     const response = await openai.chat.completions.create({
-      model: 'llama3-8b-8192', // using Groq's widely available Llama 3 model
-      messages: [{ role: 'system', content: prompt }],
+      model: 'qwen/qwen3.8-27b', // using Qwen 3.8 27B which is supported by this API key
+      messages: [
+        { role: 'system', content: prompt },
+        { role: 'user', content: query }
+      ],
       response_format: { type: 'json_object' },
     });
 
