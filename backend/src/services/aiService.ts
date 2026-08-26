@@ -3,7 +3,7 @@ import Property from '../models/Property';
 
 const openai = new OpenAI({
   baseURL: 'https://api.groq.com/openai/v1',
-  apiKey: process.env.GROQ_API_KEY || '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',
+  apiKey: process.env.GROQ_API_KEY || '',
 });
 
 export const parseUserQuery = async (query: string) => {
