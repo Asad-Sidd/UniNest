@@ -36,7 +36,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-sand-shadow/20 mt-12 pt-8 text-center text-papyrus/40 text-sm">
-          <p>&copy; {new Date().getFullYear()} UniNest. Built for Integral University students.</p>
+          <p>&copy; {new Date().getFullYear()} UniNest. Built by and for Integral University students.</p>
         </div>
       </div>
     </footer>
