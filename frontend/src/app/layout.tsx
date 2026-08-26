@@ -5,6 +5,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
+import SplashScreen from "@/components/intro/SplashScreen";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const cinzel = Cinzel({ subsets: ["latin"], variable: "--font-cinzel" });
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${cinzel.variable} font-sans min-h-screen flex flex-col bg-desert-dark text-papyrus overflow-x-hidden`}>
+        <SplashScreen />
         <Navbar />
         <main className="flex-1 flex flex-col">
           {children}
