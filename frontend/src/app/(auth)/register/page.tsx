@@ -29,37 +29,37 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <Card className="w-full max-w-md shadow-lg border-0">
+    <div className="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-warm-white dark:bg-dark-void transition-colors duration-300">
+      <Card className="w-full max-w-md shadow-sm border border-mist/40 dark:border-dark-border rounded-2xl bg-white dark:bg-dark-surface">
         <CardHeader className="space-y-1 text-center">
-          <CardTitle className="text-3xl font-bold tracking-tight">Create an account</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-3xl font-heading font-extrabold text-charcoal dark:text-dark-text tracking-tight">Create an account</CardTitle>
+          <CardDescription className="text-charcoal/60 dark:text-dark-muted">
             Join UniNest to find or list properties
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
             {error && (
-              <div className="bg-red-50 text-red-600 p-3 rounded-md text-sm font-medium">
+              <div className="bg-coral/10 text-coral p-3 rounded-lg text-sm font-semibold border border-coral/20">
                 {error}
               </div>
             )}
             
             <div className="space-y-2">
-              <Label htmlFor="role">I am a...</Label>
+              <Label htmlFor="role" className="text-mocha dark:text-dark-text font-semibold">I am a...</Label>
               <Select value={role} onValueChange={(value: 'student' | 'owner') => setRole(value)}>
-                <SelectTrigger>
+                <SelectTrigger className="border-mist/50 dark:border-dark-border bg-cream dark:bg-dark-void text-charcoal dark:text-dark-text focus:ring-coral/20">
                   <SelectValue placeholder="Select your role" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="student">Student looking for a place</SelectItem>
-                  <SelectItem value="owner">Property Owner / Manager</SelectItem>
+                <SelectContent className="bg-white dark:bg-dark-surface border-mist/50 dark:border-dark-border">
+                  <SelectItem value="student" className="hover:bg-coral/5 dark:text-dark-text focus:bg-coral/5 cursor-pointer">Student looking for a place</SelectItem>
+                  <SelectItem value="owner" className="hover:bg-coral/5 dark:text-dark-text focus:bg-coral/5 cursor-pointer">Property Owner / Manager</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="name">Full Name</Label>
+              <Label htmlFor="name" className="text-mocha font-semibold">Full Name</Label>
               <Input 
                 id="name" 
                 type="text" 
@@ -71,7 +71,7 @@ export default function RegisterPage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-mocha font-semibold">Email</Label>
               <Input 
                 id="email" 
                 type="email" 
@@ -83,7 +83,7 @@ export default function RegisterPage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="phone">Phone Number (Optional)</Label>
+              <Label htmlFor="phone" className="text-mocha font-semibold">Phone Number (Optional)</Label>
               <Input 
                 id="phone" 
                 type="tel" 
@@ -94,7 +94,7 @@ export default function RegisterPage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-mocha font-semibold">Password</Label>
               <Input 
                 id="password" 
                 type="password" 
@@ -105,12 +105,12 @@ export default function RegisterPage() {
             </div>
           </CardContent>
           <CardFooter className="flex flex-col space-y-4">
-            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={loading}>
+            <Button type="submit" className="w-full h-12 rounded-xl text-base shadow-sm" disabled={loading}>
               {loading ? 'Creating account...' : 'Create account'}
             </Button>
-            <div className="text-sm text-center text-gray-500">
+            <div className="text-sm text-center text-charcoal/60">
               Already have an account?{' '}
-              <Link href="/login" className="text-blue-600 font-medium hover:underline">
+              <Link href="/login" className="text-coral font-bold hover:underline transition-all">
                 Sign in here
               </Link>
             </div>

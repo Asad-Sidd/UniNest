@@ -66,7 +66,7 @@ export default function SplashScreen() {
         </defs>
 
         {/* Faint solid background line for depth */}
-        <g stroke="#c89666" strokeWidth="2" strokeDasharray="8 6" fill="none" opacity="0.15">
+        <g stroke="#C2CAD0" strokeWidth="2" strokeDasharray="8 6" fill="none" opacity="0.3">
           {paths.map((p, i) => (
             <path key={`bg-path-${prefix}-${i}`} d={p.d} />
           ))}
@@ -78,7 +78,7 @@ export default function SplashScreen() {
             key={`fg-path-${prefix}-${i}`}
             d={p.d}
             fill="none" 
-            stroke="#e1b382" 
+            stroke="#E7717D" 
             strokeWidth="2" 
             strokeDasharray="8 6"
             mask={`url(#mask-line-${prefix}-${i})`}
@@ -92,7 +92,7 @@ export default function SplashScreen() {
             cx={p.cx} 
             cy={p.cy} 
             r="4" 
-            fill="#d4a574" 
+            fill="#E7717D" 
             style={{ 
               opacity: 0, 
               transformOrigin: `${p.cx}px ${p.cy}px`, 
@@ -108,15 +108,15 @@ export default function SplashScreen() {
   return (
     <div 
       className={`fixed inset-0 z-[9999] flex items-center justify-center transition-all duration-700 ease-in-out pointer-events-none ${fadeOut ? 'opacity-0 scale-[0.95]' : 'opacity-100 scale-100'}`}
-      style={{ backgroundColor: '#2d545e' }}
+      style={{ backgroundColor: '#FAF9F7' }}
     >
       {/* CSS Animations moved to globals.css to prevent hydration mismatch */}
 
       {/* Subtle radial glow */}
       <div 
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-5"
         style={{
-          background: 'radial-gradient(circle at center, #e1b382 0%, transparent 60%)'
+          background: 'radial-gradient(circle at center, #E7717D 0%, transparent 60%)'
         }}
       />
 
@@ -131,12 +131,12 @@ export default function SplashScreen() {
       </svg>
       
       {/* Center Text */}
-      <h1 className="relative z-10 font-cinzel text-5xl md:text-7xl font-bold drop-shadow-[0_0_15px_rgba(225,179,130,0.4)] animate-textPop" style={{ color: '#e1b382' }}>
-        UNINEST
+      <h1 className="relative z-10 font-heading text-5xl md:text-7xl font-extrabold tracking-tight animate-textPop" style={{ color: '#3D352E' }}>
+        Uni<span style={{ color: '#E7717D' }}>Nest</span>
       </h1>
       
       {/* Subtitle */}
-      <p className="absolute mt-28 text-sm tracking-[0.3em] uppercase animate-subtitleFade font-semibold" style={{ color: '#c89666' }}>
+      <p className="absolute mt-28 text-sm tracking-[0.3em] uppercase animate-subtitleFade font-semibold" style={{ color: '#7E685A' }}>
         Find Your Nest
       </p>
     </div>

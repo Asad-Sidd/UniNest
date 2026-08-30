@@ -9,16 +9,19 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
+        default: "bg-coral text-white [a]:hover:bg-coral-soft",
         secondary:
-          "bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80",
+          "bg-mocha text-warm-white [a]:hover:bg-charcoal dark:bg-dark-elevated dark:text-dark-text dark:border-dark-border",
         destructive:
           "bg-destructive/10 text-destructive focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:focus-visible:ring-destructive/40 [a]:hover:bg-destructive/20",
         outline:
-          "border-border text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground",
+          "border-mist text-charcoal [a]:hover:bg-mist/30 dark:border-dark-border dark:text-dark-text dark:[a]:hover:bg-dark-border",
         ghost:
-          "hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50",
-        link: "text-primary underline-offset-4 hover:underline",
+          "hover:bg-coral/5 hover:text-coral dark:hover:bg-coral/10",
+        link: "text-coral underline-offset-4 hover:underline",
+        success: "bg-sage/20 text-sage px-2 py-0.5 rounded-full text-xs font-medium border border-sage/30 dark:bg-sage/20 dark:border-sage/40",
+        pending: "bg-stone/30 text-mocha border border-stone/40 dark:bg-dark-border/40 dark:text-dark-muted dark:border-dark-border",
+        rejected: "bg-coral/10 text-coral border border-coral/20 dark:bg-coral/20 dark:border-coral/30",
       },
     },
     defaultVariants: {

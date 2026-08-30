@@ -50,13 +50,13 @@ export const FilterPanel = ({ onFilterChange }: FilterPanelProps) => {
   };
 
   return (
-    <div className="bg-night-shadow p-6 rounded-sm border border-sand-shadow/30 shadow-sm space-y-6 sticky top-24">
+    <div className="bg-white dark:bg-dark-surface p-6 rounded-xl border border-mist/30 dark:border-dark-border shadow-sm dark:shadow-none space-y-6 sticky top-24">
       <div>
-        <h3 className="font-heading font-semibold text-sand-tan text-lg mb-4 tracking-widest uppercase">Filters</h3>
+        <h3 className="font-heading font-bold text-charcoal dark:text-dark-text text-lg mb-4 tracking-tight">Filters</h3>
       </div>
       
       <div className="space-y-3">
-        <Label className="text-papyrus/80 uppercase text-xs tracking-wider">Area</Label>
+        <Label className="text-mocha dark:text-dark-muted uppercase text-xs tracking-wider font-semibold">Area</Label>
         <div className="flex gap-2">
           {['Dasauli', 'Kursi Road'].map(opt => (
             <Button 
@@ -64,6 +64,7 @@ export const FilterPanel = ({ onFilterChange }: FilterPanelProps) => {
               variant={area === opt ? 'default' : 'outline'}
               size="sm"
               onClick={() => setArea(area === opt ? '' : opt)}
+              className={area !== opt ? 'text-charcoal/80 dark:text-dark-text/80' : ''}
             >
               {opt}
             </Button>
@@ -72,7 +73,7 @@ export const FilterPanel = ({ onFilterChange }: FilterPanelProps) => {
       </div>
 
       <div className="space-y-3">
-        <Label className="text-papyrus/80 uppercase text-xs tracking-wider">Max Rent (₹)</Label>
+        <Label className="text-mocha dark:text-dark-muted uppercase text-xs tracking-wider font-semibold">Max Rent (₹)</Label>
         <Input 
           type="number" 
           placeholder="e.g. 8000" 
@@ -82,7 +83,7 @@ export const FilterPanel = ({ onFilterChange }: FilterPanelProps) => {
       </div>
 
       <div className="space-y-3">
-        <Label className="text-papyrus/80 uppercase text-xs tracking-wider">Sharing Options</Label>
+        <Label className="text-mocha dark:text-dark-muted uppercase text-xs tracking-wider font-semibold">Sharing Options</Label>
         <div className="flex flex-wrap gap-2">
           {['1-sharing', '2-sharing', '3-sharing'].map(opt => (
             <Button 
@@ -90,6 +91,7 @@ export const FilterPanel = ({ onFilterChange }: FilterPanelProps) => {
               variant={sharing === opt ? 'default' : 'outline'}
               size="sm"
               onClick={() => setSharing(sharing === opt ? '' : opt)}
+              className={sharing !== opt ? 'text-charcoal/80 dark:text-dark-text/80' : ''}
             >
               {opt.replace('-sharing', ' Sharing')}
             </Button>
@@ -98,7 +100,7 @@ export const FilterPanel = ({ onFilterChange }: FilterPanelProps) => {
       </div>
 
       <div className="space-y-3">
-        <Label className="text-papyrus/80 uppercase text-xs tracking-wider">Amenities</Label>
+        <Label className="text-mocha dark:text-dark-muted uppercase text-xs tracking-wider font-semibold">Amenities</Label>
         <div className="flex flex-wrap gap-2">
           {AMENITIES_LIST.map(amenity => (
             <Button 
@@ -106,7 +108,7 @@ export const FilterPanel = ({ onFilterChange }: FilterPanelProps) => {
               variant={selectedAmenities.includes(amenity) ? 'default' : 'outline'}
               size="sm"
               onClick={() => handleAmenityToggle(amenity)}
-              className={selectedAmenities.includes(amenity) ? '' : 'text-papyrus/70'}
+              className={!selectedAmenities.includes(amenity) ? 'text-charcoal/80 dark:text-dark-text/80' : ''}
             >
               {amenity}
             </Button>
@@ -114,9 +116,9 @@ export const FilterPanel = ({ onFilterChange }: FilterPanelProps) => {
         </div>
       </div>
 
-      <div className="pt-4 flex gap-3 border-t border-sand-shadow/20">
-        <Button onClick={applyFilters} className="flex-1">Apply</Button>
-        <Button onClick={resetFilters} variant="outline" className="flex-1">Reset</Button>
+      <div className="pt-4 flex gap-3 border-t border-mist/30 dark:border-dark-border">
+        <Button onClick={applyFilters} className="flex-1 shadow-sm">Apply</Button>
+        <Button onClick={resetFilters} variant="ghost" className="flex-1 text-coral hover:text-coral-soft">Reset</Button>
       </div>
     </div>
   );

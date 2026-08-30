@@ -4,6 +4,40 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-warm-white text-charcoal transition-colors duration-300;
+}
+
+/* Custom scrollbar - light mode */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9F7;
+}
+::-webkit-scrollbar-thumb {
+  background: #C2CAD0;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E7717D;
+}
+
+/* Custom scrollbar - dark mode */
+.dark ::-webkit-scrollbar-track {
+  background: #0F0E0D;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3D3B39;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #E7717D;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -12,77 +46,54 @@
 
 @layer base {
   .theme {
-    --font-heading: var(--font-cinzel);
+    --font-heading: var(--font-manrope);
     --font-sans: var(--font-inter);
   }
 
   :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+    --background: 44 43% 97%; /* #FAF9F7 */
+    --foreground: 25 14% 20%; /* #3D352E */
+    --card: 36 29% 94%; /* #F5F0EB */
+    --card-foreground: 25 14% 20%; /* #3D352E */
+    --popover: 36 29% 94%; /* #F5F0EB */
+    --popover-foreground: 25 14% 20%; /* #3D352E */
+    --primary: 354 70% 67%; /* #E7717D */
+    --primary-foreground: 0 0% 100%; /* white */
+    --secondary: 25 14% 42%; /* #7E685A */
+    --secondary-foreground: 44 43% 97%; /* #FAF9F7 */
+    --muted: 210 12% 78%; /* #C2CAD0 */
+    --muted-foreground: 25 14% 40%;
+    --accent: 354 70% 67%; /* #E7717D */
+    --accent-foreground: 0 0% 100%; /* white */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 12% 78%; /* #C2CAD0 */
+    --input: 36 29% 94%; /* #F5F0EB */
+    --ring: 354 70% 67%; /* #E7717D */
+    --radius: 0.5rem;
   }
-
+  
   .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    /* Keeping the same for dark mode as this is a specific light interior aesthetic, or we can invert lightly */
+    --background: 25 14% 15%; 
+    --foreground: 44 43% 97%;
+    --card: 25 14% 20%;
+    --card-foreground: 44 43% 97%;
+    --popover: 25 14% 20%;
+    --popover-foreground: 44 43% 97%;
+    --primary: 354 70% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 36 29% 94%;
+    --secondary-foreground: 25 14% 20%;
+    --muted: 25 14% 25%;
+    --muted-foreground: 210 12% 78%;
+    --accent: 354 70% 67%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 25 14% 30%;
+    --input: 25 14% 25%;
+    --ring: 354 70% 67%;
   }
 
   * {
@@ -90,7 +101,7 @@
   }
 
   body {
-    @apply bg-desert-dark text-papyrus;
+    @apply bg-warm-white text-charcoal;
   }
 
   html {
@@ -98,19 +109,19 @@
   }
 }
 
-/* Custom Egyptian Aesthetic Scrollbar */
+/* Custom Modern Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background-color: theme('colors.night-shadow');
+  background-color: theme('colors.warm-white');
 }
 ::-webkit-scrollbar-thumb {
-  background-color: theme('colors.sand-tan / 50%');
-  border-radius: 4px;
+  background-color: theme('colors.mist');
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: theme('colors.sand-tan');
+  background-color: theme('colors.coral / 50%');
 }
 
 /* Twinkling Stars Animation */

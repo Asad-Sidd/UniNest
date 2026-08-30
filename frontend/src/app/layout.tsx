@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Cinzel } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
 import SplashScreen from "@/components/intro/SplashScreen";
+import { ThemeProvider } from '@/components/theme/ThemeProvider';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const cinzel = Cinzel({ subsets: ["latin"], variable: "--font-cinzel" });
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 
 export const metadata: Metadata = {
   title: "UniNest - Accommodation & Navigation System",
@@ -21,14 +22,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${cinzel.variable} font-sans min-h-screen flex flex-col bg-desert-dark text-papyrus overflow-x-hidden`}>
-        <SplashScreen />
-        <Navbar />
-        <main className="flex-1 flex flex-col">
-          {children}
-        </main>
-        <Footer />
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${manrope.variable} font-sans min-h-screen flex flex-col bg-warm-white text-charcoal overflow-x-hidden`}>
+        <ThemeProvider>
+          <SplashScreen />
+          <Navbar />
+          <main className="flex-1 flex flex-col">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

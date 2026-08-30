@@ -9,12 +9,12 @@ export default function MapPage() {
   return (
     <div className="flex-1 flex flex-col relative h-[calc(100vh-64px)]">
       {/* Overlay Filter Panel could be added here later */}
-      <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl shadow-lg border border-gray-200">
-        <h1 className="font-bold text-gray-900">UniNest Map View</h1>
-        <p className="text-sm text-gray-600">Showing {properties.length} properties near campus</p>
+      <div className="absolute top-4 left-4 z-10 bg-white/90 dark:bg-dark-surface/90 backdrop-blur-md px-4 py-2 rounded-xl shadow-lg dark:shadow-none border border-mist/50 dark:border-dark-border">
+        <h1 className="font-heading font-extrabold text-charcoal dark:text-dark-text text-lg">Property Map</h1>
+        <p className="text-xs text-charcoal/60 dark:text-dark-muted">Find properties near Integral University</p>
       </div>
 
-      <div className="flex-1 w-full bg-gray-100">
+      <div className="flex-1 w-full bg-cream">
         <MapContainer properties={properties} />
       </div>
     </div>

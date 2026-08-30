@@ -19,7 +19,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   }, [loading, isAuthenticated, router]);
 
   if (!mounted || loading || !isAuthenticated) {
-    return <div className="flex-1 flex justify-center items-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div></div>;
+    return <div className="flex-1 flex justify-center items-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-coral"></div></div>;
   }
 
   const navItems = [
@@ -30,15 +30,15 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   ];
 
   return (
-    <div className="flex-1 flex flex-col md:flex-row bg-gray-50">
+    <div className="flex-1 flex flex-col md:flex-row bg-warm-white dark:bg-dark-void transition-colors duration-300">
       {/* Sidebar */}
-      <aside className="w-full md:w-64 bg-white border-r h-full md:min-h-[calc(100vh-64px)]">
+      <aside className="w-full md:w-64 bg-white dark:bg-dark-surface border-r border-mist/30 dark:border-dark-border h-full md:min-h-[calc(100vh-64px)] shadow-sm dark:shadow-none z-10">
         <div className="p-6">
-          <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
-            {user?.name.charAt(0)}
+          <div className="w-12 h-12 bg-coral/10 dark:bg-coral/20 text-coral rounded-xl flex items-center justify-center text-xl font-heading font-extrabold mb-4 border border-coral/20 dark:border-coral/30 shadow-sm dark:shadow-none">
+            {user?.name?.charAt(0) || 'U'}
           </div>
-          <h2 className="font-bold text-gray-900">{user?.name}</h2>
-          <p className="text-sm text-gray-500 capitalize">{user?.role}</p>
+          <h2 className="font-heading font-bold text-xl text-charcoal dark:text-dark-text tracking-tight">{user?.name || 'User'}</h2>
+          <p className="text-sm text-charcoal/50 dark:text-dark-muted font-medium capitalize mb-8">{user?.role || 'Student'}</p>
         </div>
         
         <nav className="px-4 pb-6 space-y-1">
@@ -46,7 +46,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <Link 
               key={item.name} 
               href={item.href}
-              className="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors font-medium"
+              className="flex items-center gap-3 px-4 py-3 text-charcoal/70 dark:text-dark-muted hover:bg-coral/5 dark:hover:bg-coral/10 hover:text-coral dark:hover:text-coral rounded-lg transition-colors font-medium border border-transparent hover:border-coral/10 dark:hover:border-coral/20"
             >
               <item.icon className="w-5 h-5" />
               {item.name}
@@ -56,7 +56,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6 md:p-10 overflow-y-auto">
+      <main className="flex-1 p-6 md:p-10 overflow-y-auto bg-warm-white dark:bg-dark-void">
         {children}
       </main>
     </div>

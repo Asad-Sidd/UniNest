@@ -24,23 +24,23 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <Card className="w-full max-w-md shadow-lg border-0">
+    <div className="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-warm-white dark:bg-dark-void transition-colors duration-300">
+      <Card className="w-full max-w-md shadow-sm border border-mist/40 dark:border-dark-border rounded-2xl bg-white dark:bg-dark-surface">
         <CardHeader className="space-y-1 text-center">
-          <CardTitle className="text-3xl font-bold tracking-tight">Welcome back</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-3xl font-heading font-extrabold text-charcoal dark:text-dark-text tracking-tight">Welcome back</CardTitle>
+          <CardDescription className="text-charcoal/60 dark:text-dark-muted">
             Enter your credentials to access your account
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
             {error && (
-              <div className="bg-red-50 text-red-600 p-3 rounded-md text-sm font-medium">
+              <div className="bg-coral/10 text-coral p-3 rounded-lg text-sm font-semibold border border-coral/20">
                 {error}
               </div>
             )}
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-mocha font-semibold">Email</Label>
               <Input 
                 id="email" 
                 type="email" 
@@ -52,8 +52,8 @@ export default function LoginPage() {
             </div>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <Label htmlFor="password">Password</Label>
-                <Link href="#" className="text-sm font-medium text-blue-600 hover:text-blue-500">
+                <Label htmlFor="password" className="text-mocha font-semibold">Password</Label>
+                <Link href="#" className="text-sm font-semibold text-coral hover:text-coral-soft transition-colors">
                   Forgot password?
                 </Link>
               </div>
@@ -67,12 +67,12 @@ export default function LoginPage() {
             </div>
           </CardContent>
           <CardFooter className="flex flex-col space-y-4">
-            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={loading}>
+            <Button type="submit" className="w-full h-12 rounded-xl text-base shadow-sm" disabled={loading}>
               {loading ? 'Signing in...' : 'Sign in'}
             </Button>
-            <div className="text-sm text-center text-gray-500">
+            <div className="text-sm text-center text-charcoal/60">
               Don&apos;t have an account?{' '}
-              <Link href="/register" className="text-blue-600 font-medium hover:underline">
+              <Link href="/register" className="text-coral font-bold hover:underline transition-all">
                 Register here
               </Link>
             </div>
