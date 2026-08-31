@@ -66,7 +66,7 @@ export default function SplashScreen() {
         </defs>
 
         {/* Faint solid background line for depth */}
-        <g stroke="#C2CAD0" strokeWidth="2" strokeDasharray="8 6" fill="none" opacity="0.3">
+        <g className="stroke-dark-border" strokeWidth="2" strokeDasharray="8 6" fill="none" opacity="0.3">
           {paths.map((p, i) => (
             <path key={`bg-path-${prefix}-${i}`} d={p.d} />
           ))}
@@ -78,7 +78,7 @@ export default function SplashScreen() {
             key={`fg-path-${prefix}-${i}`}
             d={p.d}
             fill="none" 
-            stroke="#E7717D" 
+            className="stroke-coral"
             strokeWidth="2" 
             strokeDasharray="8 6"
             mask={`url(#mask-line-${prefix}-${i})`}
@@ -92,7 +92,7 @@ export default function SplashScreen() {
             cx={p.cx} 
             cy={p.cy} 
             r="4" 
-            fill="#E7717D" 
+            className="fill-coral"
             style={{ 
               opacity: 0, 
               transformOrigin: `${p.cx}px ${p.cy}px`, 
@@ -107,8 +107,7 @@ export default function SplashScreen() {
 
   return (
     <div 
-      className={`fixed inset-0 z-[9999] flex items-center justify-center transition-all duration-700 ease-in-out pointer-events-none ${fadeOut ? 'opacity-0 scale-[0.95]' : 'opacity-100 scale-100'}`}
-      style={{ backgroundColor: '#FAF9F7' }}
+      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-dark-void transition-all duration-700 ease-in-out pointer-events-none ${fadeOut ? 'opacity-0 scale-[0.95]' : 'opacity-100 scale-100'}`}
     >
       {/* CSS Animations moved to globals.css to prevent hydration mismatch */}
 
@@ -131,12 +130,12 @@ export default function SplashScreen() {
       </svg>
       
       {/* Center Text */}
-      <h1 className="relative z-10 font-heading text-5xl md:text-7xl font-extrabold tracking-tight animate-textPop" style={{ color: '#3D352E' }}>
-        Uni<span style={{ color: '#E7717D' }}>Nest</span>
+      <h1 className="relative z-10 font-heading text-5xl md:text-7xl font-extrabold tracking-tight animate-textPop text-dark-text">
+        Uni<span className="text-coral">Nest</span>
       </h1>
       
       {/* Subtitle */}
-      <p className="absolute mt-28 text-sm tracking-[0.3em] uppercase animate-subtitleFade font-semibold" style={{ color: '#7E685A' }}>
+      <p className="absolute mt-28 text-sm tracking-[0.3em] uppercase animate-subtitleFade font-semibold text-dark-muted">
         Find Your Nest
       </p>
     </div>
