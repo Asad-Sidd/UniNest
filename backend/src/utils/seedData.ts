@@ -109,7 +109,7 @@ const properties = [
       ],
     },
     amenities: ['WiFi', 'AC', 'Food', 'Gym', 'Laundry'],
-    images: ['https://images.unsplash.com/photo-1502672260266-1c1e5250ce07?auto=format&fit=crop&q=80&w=800'],
+    images: ['https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=800'],
     verificationStatus: 'verified',
     isAvailable: true,
   },
